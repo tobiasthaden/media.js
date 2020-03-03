@@ -1,0 +1,35 @@
+{
+  "name": "mediajs",
+  "version": "1.0.0",
+  "description": "The modern media player",
+  "main": "index.js",
+  "scripts": {
+    "watch": "rollup -c -w",
+    "build": "rollup -c"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tobiasthaden/media.js.git"
+  },
+  "keywords": [
+    "video",
+    "audio",
+    "player",
+    "html5-video",
+    "html5-audio"
+  ],
+  "author": {
+    "name": "Tobias Thaden",
+    "email": "hello@tobiasthaden.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tobiasthaden/media.js/issues"
+  },
+  "homepage": "https:/media.js.org",
+  "devDependencies": {
+    "@babel/core": "^7.8.7",
+    "rollup": "^1.32.1",
+    "rollup-plugin-babel": "^4.4.0"
+  }
+}
