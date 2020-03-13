@@ -8,7 +8,7 @@ export default class Toolbar {
      * @return {void}
      */
     constructor(player) {
-        this.element = Element.create("div", element => {
+        this.element = Element.create("div", { class: "controls" }, element => {
             player.element.appendChild(element);
         });
 

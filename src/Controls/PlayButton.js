@@ -18,10 +18,10 @@ export default class PlayButton extends Control {
      */
     boot() {
         this.media.addEventListener("play", event =>
-            this.updateCssClass("play", "pause"),
+            this.element.setAttribute("aria-label", "pause"),
         );
         this.media.addEventListener("pause", event =>
-            this.updateCssClass("pause", "play"),
+            this.element.setAttribute("aria-label", "play"),
         );
     }
 
@@ -40,6 +40,9 @@ export default class PlayButton extends Control {
      * @return {Element}
      */
     makeElement() {
-        return Element.create("button");
+        return Element.create("button", {
+            class: "controls-play",
+            "aria-label": "play",
+        });
     }
 }

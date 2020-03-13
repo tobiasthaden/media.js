@@ -12,15 +12,6 @@ export default class VolumeSlider extends Control {
     }
 
     /**
-     * Boot any control services.
-     *
-     * @return {void}
-     */
-    boot() {
-        this.updateCssClass("volume");
-    }
-
-    /**
      * Get the controls event.
      *
      * @return {CustomEvent}
@@ -40,6 +31,7 @@ export default class VolumeSlider extends Control {
      */
     makeElement() {
         return Element.create("input", {
+            class: "controls-volume",
             type: "range",
             min: 0,
             max: 100,

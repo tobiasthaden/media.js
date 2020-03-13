@@ -19,8 +19,8 @@ export default class MuteButton extends Control {
     boot() {
         this.media.addEventListener("volumechange", event => {
             this.media.muted
-                ? this.updateCssClass("mute", "voice")
-                : this.updateCssClass("voice", "mute");
+                ? this.element.setAttribute("aria-label", "unmute")
+                : this.element.setAttribute("aria-label", "mute");
         });
     }
 
@@ -39,6 +39,9 @@ export default class MuteButton extends Control {
      * @return {Element}
      */
     makeElement() {
-        return Element.create("button");
+        return Element.create("button", {
+            class: "controls-mute",
+            "aria-label": "mute",
+        });
     }
 }

@@ -12,15 +12,6 @@ export default class FullscreenButton extends Control {
     }
 
     /**
-     * Boot any control services.
-     *
-     * @return {void}
-     */
-    boot() {
-        this.updateCssClass("fullscreen");
-    }
-
-    /**
      * Get the controls event.
      *
      * @return {CustomEvent}
@@ -35,6 +26,8 @@ export default class FullscreenButton extends Control {
      * @return {Element}
      */
     makeElement() {
-        return Element.create("button");
+        return Element.create("button", {
+            class: "controls-fullscreen",
+        });
     }
 }

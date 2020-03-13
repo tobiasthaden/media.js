@@ -17,7 +17,6 @@ export default class TimeSlider extends Control {
      * @return {void}
      */
     boot() {
-        this.updateCssClass("timeline");
         this.updateTime();
     }
 
@@ -53,6 +52,7 @@ export default class TimeSlider extends Control {
      */
     makeElement() {
         return Element.create("input", {
+            class: "controls-timeline",
             type: "range",
             min: 0,
             max: 100,
