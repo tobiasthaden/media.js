@@ -26,6 +26,15 @@ export default class Control {
     }
 
     /**
+     * Get the controls event listeners.
+     *
+     * @return {array}
+     */
+    eventListener() {
+        return [];
+    }
+
+    /**
      * Bind a a native media player.
      *
      * @param {Element} media

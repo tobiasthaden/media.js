@@ -2,6 +2,7 @@ import Element from "./Support/Element.js";
 import MuteButton from "./Controls/MuteButton.js";
 import PlayButton from "./Controls/PlayButton.js";
 import VolumeSlider from "./Controls/VolumeSlider.js";
+import TimeDisplay from "./Controls/TimeDisplay.js";
 import TimeSlider from "./Controls/TimeSlider.js";
 import FullscreenButton from "./Controls/FullscreenButton.js";
 
@@ -106,6 +107,7 @@ export class VideoPlayer extends Player {
             new PlayButton(),
             new MuteButton(),
             new VolumeSlider(),
+            new TimeDisplay(),
             new TimeSlider(),
             new FullscreenButton(),
         ];
@@ -149,6 +151,7 @@ export class AudioPlayer extends Player {
             new PlayButton(),
             new MuteButton(),
             new VolumeSlider(),
+            new TimeDisplay(),
             new TimeSlider(),
         ];
     }

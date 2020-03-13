@@ -84,6 +84,18 @@
     margin-right: 15px;
 }
 
+[data-audio] .controls-display,
+[data-video] .controls-display {
+    align-self: flex-end;
+    margin-right: 10px;
+}
+
+[data-audio] .controls-display-seperator,
+[data-video] .controls-display-seperator {
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
 [data-audio] .controls-volume,
 [data-video] .controls-volume {
     max-width: 50px;
