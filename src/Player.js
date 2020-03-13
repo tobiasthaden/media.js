@@ -1,4 +1,9 @@
 import Element from "./Support/Element.js";
+import MuteButton from "./Controls/MuteButton.js";
+import PlayButton from "./Controls/PlayButton.js";
+import VolumeSlider from "./Controls/VolumeSlider.js";
+import TimeSlider from "./Controls/TimeSlider.js";
+import FullscreenButton from "./Controls/FullscreenButton.js";
 
 class Player {
     /**
@@ -91,6 +96,22 @@ class Player {
 }
 
 export class VideoPlayer extends Player {
+
+    /**
+     * Get the players controls.
+     *
+     * @return {Array}
+     */
+    controls() {
+        return [
+            new PlayButton,
+            new MuteButton,
+            new VolumeSlider,
+            new TimeSlider,
+            new FullscreenButton,
+        ];
+    }
+
     /**
      * Create a new native video player.
      *
@@ -119,6 +140,21 @@ export class VideoPlayer extends Player {
 }
 
 export class AudioPlayer extends Player {
+
+    /**
+     * Get the players controls.
+     *
+     * @return {Array}
+     */
+    controls() {
+        return [
+            new PlayButton,
+            new MuteButton,
+            new VolumeSlider,
+            new TimeSlider,
+        ];
+    }
+
     /**
      * Create a new native audio player.
      *

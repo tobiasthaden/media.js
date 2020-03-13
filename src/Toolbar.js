@@ -1,9 +1,4 @@
 import Element from "./Support/Element.js";
-import MuteButton from "./Controls/MuteButton.js";
-import PlayButton from "./Controls/PlayButton.js";
-import VolumeSlider from "./Controls/VolumeSlider.js";
-import TimeSlider from "./Controls/TimeSlider.js";
-import FullscreenButton from "./Controls/FullscreenButton.js";
 
 export default class Toolbar {
     /**
@@ -13,19 +8,11 @@ export default class Toolbar {
      * @return {void}
      */
     constructor(player) {
-        this.items = [
-            new PlayButton(),
-            new MuteButton(),
-            new VolumeSlider(),
-            new TimeSlider(),
-            new FullscreenButton(),
-        ];
-
         this.element = Element.create("div", element => {
             player.element.appendChild(element);
         });
 
-        this.items.map(item => {
+        player.controls().map(item => {
             item.bind(player.native, control => control.boot());
             item.handle(event => this.element.dispatchEvent(event));
             this.element.appendChild(item.element);
