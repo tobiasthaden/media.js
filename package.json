@@ -4,7 +4,7 @@
   "description": "A simple and lightweight html5 media player",
   "main": "index.js",
   "scripts": {
-    "prettier": "prettier --write '**/*.js'"
+    "prettier": "prettier --write '**/*.{css,js}'"
   },
   "repository": {
     "type": "git",
