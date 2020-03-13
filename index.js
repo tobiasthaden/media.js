@@ -36,7 +36,7 @@ export class Radio {
     static listenAll(selector) {
         selector = selector ? selector : "[data-audio]";
         Array.from(document.querySelectorAll(selector)).map(channel =>
-            Radio.listen(channel),
+            new Radio().listen(channel),
         );
     }
 
