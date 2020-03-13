@@ -96,7 +96,6 @@ class Player {
 }
 
 export class VideoPlayer extends Player {
-
     /**
      * Get the players controls.
      *
@@ -104,11 +103,11 @@ export class VideoPlayer extends Player {
      */
     controls() {
         return [
-            new PlayButton,
-            new MuteButton,
-            new VolumeSlider,
-            new TimeSlider,
-            new FullscreenButton,
+            new PlayButton(),
+            new MuteButton(),
+            new VolumeSlider(),
+            new TimeSlider(),
+            new FullscreenButton(),
         ];
     }
 
@@ -140,7 +139,6 @@ export class VideoPlayer extends Player {
 }
 
 export class AudioPlayer extends Player {
-
     /**
      * Get the players controls.
      *
@@ -148,10 +146,10 @@ export class AudioPlayer extends Player {
      */
     controls() {
         return [
-            new PlayButton,
-            new MuteButton,
-            new VolumeSlider,
-            new TimeSlider,
+            new PlayButton(),
+            new MuteButton(),
+            new VolumeSlider(),
+            new TimeSlider(),
         ];
     }
 
