@@ -1,6 +1,18 @@
 import Controls from "./src/Toolbar.js";
 import { VideoPlayer, AudioPlayer } from "./src/Player.js";
 
+/**
+ * Call the callback with the value then return the value.
+ *
+ * @param  {*} value
+ * @param  {Function} callback
+ * @return {*}
+ */
+const tap = function(value, callback) {
+    callback(value);
+    return value;
+};
+
 export default class Cinema {
     /**
      * Initialize all video players.
@@ -9,10 +21,9 @@ export default class Cinema {
      * @return {void}
      */
     static watchAll(selector) {
-        selector = selector ? selector : "[data-video]";
-        Array.from(document.querySelectorAll(selector)).map(movie =>
-            new Cinema().watch(movie),
-        );
+        return [
+            ...document.querySelectorAll(selector ?? "[data-video]"),
+        ].map(movie => Cinema.watch(movie));
     }
 
     /**
@@ -21,8 +32,8 @@ export default class Cinema {
      * @param {Element} movie
      * @return {void}
      */
-    watch(movie) {
-        new Controls(new VideoPlayer(movie));
+    static watch(movie) {
+        return tap(new VideoPlayer(movie), player => new Controls(player));
     }
 }
 
@@ -34,10 +45,9 @@ export class Radio {
      * @return {void}
      */
     static listenAll(selector) {
-        selector = selector ? selector : "[data-audio]";
-        Array.from(document.querySelectorAll(selector)).map(channel =>
-            new Radio().listen(channel),
-        );
+        return [
+            ...document.querySelectorAll(selector ?? "[data-audio]"),
+        ].map(channel => new Radio().listen(channel));
     }
 
     /**
@@ -46,7 +56,7 @@ export class Radio {
      * @param {Element} movie
      * @return {void}
      */
-    listen(channel) {
-        new Controls(new AudioPlayer(channel));
+    static listen(channel) {
+        return tap(new AudioPlayer(channel), player => new Controls(player));
     }
 }
