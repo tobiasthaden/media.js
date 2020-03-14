@@ -44,7 +44,11 @@ class Player {
      *
      * @return {void}
      */
-    registerEvents() {}
+    registerEvents() {
+        document.addEventListener("keydown", event =>
+            this.keyboard ? this.dispatch(Keyboard.transform(event)) : null,
+        );
+    }
 
     /**
      * Register a player event.
@@ -55,6 +59,16 @@ class Player {
      */
     listen(event, callback) {
         this.native.addEventListener(event, e => callback(e));
+    }
+
+    /**
+     * Dispatch the given event.
+     *
+     * @param  {Event} event
+     * @return {void}
+     */
+    dispatch(event) {
+        this.native.dispatchEvent(event);
     }
 
     /**
@@ -104,6 +118,24 @@ class Player {
     }
 
     /**
+     * Increment the current time.
+     *
+     * @return {void}
+     */
+    incrementTime() {
+        this.setTime(this.native.currentTime + 5);
+    }
+
+    /**
+     * Decrement the current time.
+     *
+     * @return {void}
+     */
+    decrementTime() {
+        this.setTime(this.native.currentTime - 5);
+    }
+
+    /**
      * Update the current volume.
      *
      * @param {number} volume
@@ -111,6 +143,26 @@ class Player {
      */
     setVolume(volume) {
         this.native.volume = volume;
+    }
+
+    /**
+     * Increment the volume.
+     *
+     * @return {void}
+     */
+    incrementVolume() {
+        let volume = this.native.volume + 0.1;
+        this.setVolume(volume >= 1 ? 1 : volume);
+    }
+
+    /**
+     * Decrement the volume.
+     *
+     * @return {void}
+     */
+    decrementVolume() {
+        let volume = this.native.volume - 0.1;
+        this.setVolume(volume <= 0 ? 0 : volume);
     }
 }
 
@@ -137,6 +189,18 @@ export class VideoPlayer extends Player {
                   new FullscreenButton(),
               ];
 
+        this.events = options.hasOwnProperty("events")
+            ? options.events
+            : {
+                  click: event => this.switchPlay(),
+                  "key:m": event => this.switchMute(),
+                  "key:space": event => this.switchPlay(),
+                  "key:right": event => this.incrementTime(),
+                  "key:left": event => this.decrementTime(),
+                  "key:up": event => this.incrementVolume(),
+                  "key:down": event => this.decrementVolume(),
+              };
+
         this.boot();
     }
 
@@ -160,6 +224,9 @@ export class VideoPlayer extends Player {
      * @return {void}
      */
     registerEvents() {
+        super.registerEvents();
+
+        Object.keys(this.events).map(key => this.listen(key, this.events[key]));
     }
 
     /**
@@ -197,6 +264,18 @@ export class AudioPlayer extends Player {
                   new TimeDisplay(),
                   new TimeSlider(),
               ];
+
+        this.events = options.hasOwnProperty("events")
+            ? options.events
+            : {
+                  click: event => this.switchPlay(),
+                  "key:m": event => this.switchMute(),
+                  "key:space": event => this.switchPlay(),
+                  "key:right": event => this.incrementTime(),
+                  "key:left": event => this.decrementTime(),
+                  "key:up": event => this.incrementVolume(),
+                  "key:down": event => this.decrementVolume(),
+              };
 
         this.boot();
     }
