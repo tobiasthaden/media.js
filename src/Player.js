@@ -72,6 +72,10 @@ class Player {
      * @return {Promise}
      */
     fullscreen() {
+        if (this.native.webkitRequestFullScreen) {
+            return this.native.webkitRequestFullScreen();
+        }
+
         return this.native.requestFullscreen();
     }
 
