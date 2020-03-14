@@ -14,7 +14,7 @@ export default class Toolbar {
 
         player.controls.map(item => {
             item.bind(player.native, control => control.boot());
-            item.handle(event => this.element.dispatchEvent(event));
+            item.handle(event => this.dispatch(event));
             this.element.appendChild(item.element);
         });
 
@@ -44,5 +44,15 @@ export default class Toolbar {
      */
     listen(event, callback) {
         this.element.addEventListener(event, e => callback(e));
+    }
+
+    /**
+     * Dispatch the given toolbar event.
+     *
+     * @param  {Event} event
+     * @return {void}
+     */
+    dispatch(event) {
+        this.element.dispatchEvent(event);
     }
 }
