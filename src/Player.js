@@ -36,7 +36,6 @@ class Player {
      */
     boot() {
         this.registerEvents();
-        this.enableKeyboard();
     }
 
     /**
@@ -178,6 +177,10 @@ export class VideoPlayer extends Player {
 
         options = options ?? {};
 
+        this.keyboard = options.hasOwnProperty("keyboard")
+            ? options.hasOwnProperty("keyboard")
+            : true;
+
         this.controls = options.hasOwnProperty("controls")
             ? options.controls
             : [
@@ -255,6 +258,10 @@ export class AudioPlayer extends Player {
         super(element);
 
         options = options ?? {};
+
+        this.keyboard = options.hasOwnProperty("keyboard")
+            ? options.hasOwnProperty("keyboard")
+            : true;
 
         this.controls = options.hasOwnProperty("controls")
             ? options.controls
