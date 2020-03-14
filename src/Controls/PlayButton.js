@@ -17,21 +17,15 @@ export default class PlayButton extends Control {
      * @return {void}
      */
     boot() {
-        this.media.addEventListener("play", event =>
+        this.player.listen("play", event =>
             this.element.setAttribute("aria-label", "pause"),
         );
-        this.media.addEventListener("pause", event =>
+
+        this.player.listen("pause", event =>
             this.element.setAttribute("aria-label", "play"),
         );
-    }
 
-    /**
-     * Get the controls event.
-     *
-     * @return {CustomEvent}
-     */
-    eventHandler() {
-        return new CustomEvent("play");
+        this.listen('click', event => this.player.switchPlay());
     }
 
     /**

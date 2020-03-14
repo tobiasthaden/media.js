@@ -3,34 +3,14 @@ import Element from "../Support/Element.js";
 
 export default class VolumeSlider extends Control {
     /**
-     * Get the controls event listeners.
-     *
-     * @return {array}
-     */
-    eventListener() {
-        return ["input"];
-    }
-
-    /**
      * Boot any control services.
      *
      * @return {void}
      */
     boot() {
         this.updateVolume();
-    }
 
-    /**
-     * Get the controls event.
-     *
-     * @return {CustomEvent}
-     */
-    eventHandler() {
-        return new CustomEvent("volume", {
-            detail: {
-                volume: event.target.value / 100,
-            },
-        });
+        this.listen('input', event => this.player.setVolume(event.target.value / 100));
     }
 
     /**
@@ -39,8 +19,8 @@ export default class VolumeSlider extends Control {
      * @return {void}
      */
     updateVolume() {
-        this.media.addEventListener("volumechange", event => {
-            this.element.value = this.media.volume * 100;
+        this.player.listen("volumechange", event => {
+            this.element.value = this.player.native.volume * 100;
         });
     }
 

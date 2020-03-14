@@ -26,27 +26,29 @@ export default class Control {
     }
 
     /**
-     * Get the controls event listeners.
+     * Bind the player.
      *
-     * @return {array}
-     */
-    eventListener() {
-        return [];
-    }
-
-    /**
-     * Bind a a native media player.
-     *
-     * @param {Element} media
+     * @param {Element} player
      * @param {Function} callback
      * @return {void}
      */
-    bind(media, callback) {
-        this.media = media;
+    bind(player, callback) {
+        this.player = player;
 
         if (callback) {
             callback(this);
         }
+    }
+
+    /**
+     * Register a toolbar listener.
+     *
+     * @param {string} event
+     * @param {Function} callback
+     * @return {void}
+     */
+    listen(event, callback) {
+        this.element.addEventListener(event, e => callback(e));
     }
 
     /**
@@ -59,19 +61,5 @@ export default class Control {
     updateCssClass(current, before) {
         this.element.classList.add(current);
         this.element.classList.remove(before);
-    }
-
-    /**
-     * Handle any control events.
-     *
-     * @param {Function} callback
-     * @return {void}
-     */
-    handle(callback) {
-        this.eventListener().map(listener => {
-            this.element.addEventListener(listener, event =>
-                callback(this.eventHandler()),
-            );
-        });
     }
 }

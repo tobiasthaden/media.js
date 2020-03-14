@@ -18,8 +18,8 @@ export default class TimeDisplay extends Control {
      * @return {void}
      */
     setDuration() {
-        this.media.addEventListener("durationchange", event => {
-            this.duration.nodeValue = this.formatTime(this.media.duration);
+        this.player.listen("durationchange", event => {
+            this.duration.nodeValue = this.formatTime(this.player.native.duration);
         });
     }
 
@@ -29,8 +29,8 @@ export default class TimeDisplay extends Control {
      * @return {void}
      */
     updateTime() {
-        this.media.addEventListener("timeupdate", event => {
-            this.current.nodeValue = this.formatTime(this.media.currentTime);
+        this.player.listen("timeupdate", event => {
+            this.current.nodeValue = this.formatTime(this.player.native.currentTime);
         });
     }
 

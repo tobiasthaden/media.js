@@ -3,21 +3,12 @@ import Element from "../Support/Element.js";
 
 export default class FullscreenButton extends Control {
     /**
-     * Get the controls event listeners.
+     * Boot any control services.
      *
-     * @return {array}
+     * @return {void}
      */
-    eventListener() {
-        return ["click"];
-    }
-
-    /**
-     * Get the controls event.
-     *
-     * @return {CustomEvent}
-     */
-    eventHandler() {
-        return new CustomEvent("fullscreen");
+    boot() {
+        this.listen('click', event => this.player.fullscreen());
     }
 
     /**

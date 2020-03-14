@@ -3,34 +3,16 @@ import Element from "../Support/Element.js";
 
 export default class TimeSlider extends Control {
     /**
-     * Get the controls event listeners.
-     *
-     * @return {array}
-     */
-    eventListener() {
-        return ["input"];
-    }
-
-    /**
      * Boot any control services.
      *
      * @return {void}
      */
     boot() {
         this.updateTime();
-    }
 
-    /**
-     * Get the controls event.
-     *
-     * @return {CustomEvent}
-     */
-    eventHandler() {
-        return new CustomEvent("time", {
-            detail: {
-                time: (this.media.duration / 100) * event.target.value,
-            },
-        });
+        this.listen('input', event => this.player.setTime(
+            (this.player.native.duration / 100) * event.target.value
+        ));
     }
 
     /**
@@ -39,9 +21,9 @@ export default class TimeSlider extends Control {
      * @return {void}
      */
     updateTime() {
-        this.media.addEventListener("timeupdate", event => {
+        this.player.listen("timeupdate", event => {
             this.element.value =
-                (100 / this.media.duration) * this.media.currentTime;
+                (100 / this.player.native.duration) * this.player.native.currentTime;
         });
     }
 
