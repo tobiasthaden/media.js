@@ -8,7 +8,9 @@ export default class Keyboard {
     }
 
     fromCode(code) {
-        return this.codes[code];
+        return this.codes.hasOwnProperty(code)
+            ? this.codes[code]
+            : code;
     }
 
     static transform({ keyCode }) {
@@ -17,12 +19,18 @@ export default class Keyboard {
 }
 
 Keyboard.prototype.codes = {
+    27: "esc",
     32: "space",
     37: "left",
     38: "up",
     39: "right",
     40: "down",
+    48: "zero",
     70: "f",
+    74: "j",
     75: "k",
+    76: "l",
     77: "m",
+    188: "comma",
+    190: "period",
 };
