@@ -67,19 +67,6 @@ class Player {
     }
 
     /**
-     * Request fullscreen.
-     *
-     * @return {Promise}
-     */
-    fullscreen() {
-        if (this.native.webkitRequestFullScreen) {
-            return this.native.webkitRequestFullScreen();
-        }
-
-        return this.native.requestFullscreen();
-    }
-
-    /**
      * Update the current time.
      *
      * @param {number} time
@@ -141,6 +128,19 @@ export class VideoPlayer extends Player {
         this.listen("keydown", event =>
             event.which == 32 ? this.switchPlay() : null,
         );
+    }
+
+    /**
+     * Request fullscreen.
+     *
+     * @return {Promise}
+     */
+    fullscreen() {
+        if (this.native.webkitRequestFullScreen) {
+            return this.native.webkitRequestFullScreen();
+        }
+
+        return this.native.requestFullscreen();
     }
 }
 
