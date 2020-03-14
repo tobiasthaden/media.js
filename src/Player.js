@@ -249,7 +249,7 @@ export class VideoPlayer extends Player {
 
 export class AudioPlayer extends Player {
     /**
-     * Create a new video player instance.
+     * Create a new audio player instance.
      *
      * @param  {Element} element
      * @param  {Object|null} options
