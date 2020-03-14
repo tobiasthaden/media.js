@@ -12,6 +12,15 @@ export default class VolumeSlider extends Control {
     }
 
     /**
+     * Boot any control services.
+     *
+     * @return {void}
+     */
+    boot() {
+        this.updateVolume();
+    }
+
+    /**
      * Get the controls event.
      *
      * @return {CustomEvent}
@@ -21,6 +30,17 @@ export default class VolumeSlider extends Control {
             detail: {
                 volume: event.target.value / 100,
             },
+        });
+    }
+
+    /**
+     * Update the slider value.
+     *
+     * @return {void}
+     */
+    updateVolume() {
+        this.media.addEventListener("volumechange", event => {
+            this.element.value = this.media.volume * 100;
         });
     }
 
