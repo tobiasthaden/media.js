@@ -12,7 +12,7 @@ export default class Toolbar {
             player.element.appendChild(element);
         });
 
-        player.controls().map(item => {
+        player.controls.map(item => {
             item.bind(player.native, control => control.boot());
             item.handle(event => this.element.dispatchEvent(event));
             this.element.appendChild(item.element);

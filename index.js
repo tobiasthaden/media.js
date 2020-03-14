@@ -18,12 +18,13 @@ export default class Cinema {
      * Initialize all video players.
      *
      * @param {string|null} selector
+     * @param {Object|null} options
      * @return {void}
      */
-    static watchAll(selector) {
+    static watchAll(selector, options) {
         return [
             ...document.querySelectorAll(selector ?? "[data-video]"),
-        ].map(movie => Cinema.watch(movie));
+        ].map(movie => Cinema.watch(movie, options));
     }
 
     /**
@@ -32,8 +33,11 @@ export default class Cinema {
      * @param {Element} movie
      * @return {void}
      */
-    static watch(movie) {
-        return tap(new VideoPlayer(movie), player => new Controls(player));
+    static watch(movie, options) {
+        return tap(
+            new VideoPlayer(movie, options),
+            player => new Controls(player),
+        );
     }
 }
 
@@ -42,21 +46,25 @@ export class Radio {
      * Initialize all audio players.
      *
      * @param {string|null} selector
+     * @param {Object|null} options
      * @return {void}
      */
-    static listenAll(selector) {
+    static listenAll(selector, options) {
         return [
             ...document.querySelectorAll(selector ?? "[data-audio]"),
-        ].map(channel => new Radio().listen(channel));
+        ].map(channel => Radio.listen(channel, options));
     }
 
     /**
      * Initialize a audio player.
      *
-     * @param {Element} movie
+     * @param {Element} channel
      * @return {void}
      */
     static listen(channel) {
-        return tap(new AudioPlayer(channel), player => new Controls(player));
+        return tap(
+            new AudioPlayer(channel, options),
+            player => new Controls(player),
+        );
     }
 }

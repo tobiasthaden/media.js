@@ -1,4 +1,5 @@
 import Element from "./Support/Element.js";
+import Keyboard from "./Support/Keyboard.js";
 import MuteButton from "./Controls/MuteButton.js";
 import PlayButton from "./Controls/PlayButton.js";
 import VolumeSlider from "./Controls/VolumeSlider.js";
@@ -16,8 +17,6 @@ class Player {
     constructor(element) {
         this.element = element;
         this.native = this.makeMediaPlayer(element);
-
-        this.registerEvents();
     }
 
     /**
@@ -28,6 +27,16 @@ class Player {
      */
     makeMediaPlayer(container) {
         throw "Can not instantiate an abstract player.";
+    }
+
+    /**
+     * Bootstrap any player services.
+     *
+     * @return {void}
+     */
+    boot() {
+        this.registerEvents();
+        this.enableKeyboard();
     }
 
     /**
@@ -46,6 +55,24 @@ class Player {
      */
     listen(event, callback) {
         this.native.addEventListener(event, e => callback(e));
+    }
+
+    /**
+     * Enable keyboard support.
+     *
+     * @return {void}
+     */
+    enableKeyboard() {
+        this.keyboard = true;
+    }
+
+    /**
+     * Disable keyboard support.
+     *
+     * @return {void}
+     */
+    disableKeyboard() {
+        this.keyboard = false;
     }
 
     /**
@@ -89,19 +116,28 @@ class Player {
 
 export class VideoPlayer extends Player {
     /**
-     * Get the players controls.
+     * Create a new video player instance.
      *
-     * @return {Array}
+     * @param  {Element} element
+     * @param  {Object|null} options
      */
-    controls() {
-        return [
-            new PlayButton(),
-            new MuteButton(),
-            new VolumeSlider(),
-            new TimeDisplay(),
-            new TimeSlider(),
-            new FullscreenButton(),
-        ];
+    constructor(element, options) {
+        super(element);
+
+        options = options ?? {};
+
+        this.controls = options.hasOwnProperty("controls")
+            ? options.controls
+            : [
+                  new PlayButton(),
+                  new MuteButton(),
+                  new VolumeSlider(),
+                  new TimeDisplay(),
+                  new TimeSlider(),
+                  new FullscreenButton(),
+              ];
+
+        this.boot();
     }
 
     /**
@@ -124,10 +160,6 @@ export class VideoPlayer extends Player {
      * @return {void}
      */
     registerEvents() {
-        this.listen("click", event => this.switchPlay());
-        this.listen("keydown", event =>
-            event.which == 32 ? this.switchPlay() : null,
-        );
     }
 
     /**
@@ -146,18 +178,27 @@ export class VideoPlayer extends Player {
 
 export class AudioPlayer extends Player {
     /**
-     * Get the players controls.
+     * Create a new video player instance.
      *
-     * @return {Array}
+     * @param  {Element} element
+     * @param  {Object|null} options
      */
-    controls() {
-        return [
-            new PlayButton(),
-            new MuteButton(),
-            new VolumeSlider(),
-            new TimeDisplay(),
-            new TimeSlider(),
-        ];
+    constructor(element, options) {
+        super(element);
+
+        options = options ?? {};
+
+        this.controls = options.hasOwnProperty("controls")
+            ? options.controls
+            : [
+                  new PlayButton(),
+                  new MuteButton(),
+                  new VolumeSlider(),
+                  new TimeDisplay(),
+                  new TimeSlider(),
+              ];
+
+        this.boot();
     }
 
     /**
