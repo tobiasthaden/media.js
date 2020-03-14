@@ -22,6 +22,7 @@ Keyboard.prototype.codes = {
     38: "up",
     39: "right",
     40: "down",
+    70: "f",
     75: "k",
     77: "m",
 };

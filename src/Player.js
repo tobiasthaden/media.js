@@ -194,6 +194,7 @@ export class VideoPlayer extends Player {
             : {
                   click: event => this.switchPlay(),
                   "key:m": event => this.switchMute(),
+                  "key:f": event => this.fullscreen(),
                   "key:space": event => this.switchPlay(),
                   "key:right": event => this.incrementTime(),
                   "key:left": event => this.decrementTime(),
