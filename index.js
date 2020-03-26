@@ -15,56 +15,44 @@ const tap = function(value, callback) {
 
 export default class Cinema {
     /**
-     * Initialize all video players.
+     * Initialize video players.
      *
-     * @param {string|null} selector
+     * @param {string|Element} element
      * @param {Object|null} options
      * @return {void}
      */
-    static watchAll(selector, options) {
-        return [
-            ...document.querySelectorAll(selector ?? "[data-video]"),
-        ].map(movie => Cinema.watch(movie, options));
-    }
+    static watch(element, options) {
+        if (element instanceof Element) {
+            return tap(
+                new VideoPlayer(element, options),
+                player => new Controls(player),
+            );
+        }
 
-    /**
-     * Initialize a video player.
-     *
-     * @param {Element} movie
-     * @return {void}
-     */
-    static watch(movie, options) {
-        return tap(
-            new VideoPlayer(movie, options),
-            player => new Controls(player),
-        );
+        return [
+            ...document.querySelectorAll(element ?? "[data-video]"),
+        ].map(movie => Cinema.watch(movie, options));
     }
 }
 
 export class Radio {
     /**
-     * Initialize all audio players.
+     * Initialize audio players.
      *
-     * @param {string|null} selector
+     * @param {string|Element} element
      * @param {Object|null} options
      * @return {void}
      */
-    static listenAll(selector, options) {
-        return [
-            ...document.querySelectorAll(selector ?? "[data-audio]"),
-        ].map(channel => Radio.listen(channel, options));
-    }
+    static listen(element, options) {
+        if (element instanceof Element) {
+            return tap(
+                new AudioPlayer(element, options),
+                player => new Controls(player),
+            );
+        }
 
-    /**
-     * Initialize a audio player.
-     *
-     * @param {Element} channel
-     * @return {void}
-     */
-    static listen(channel) {
-        return tap(
-            new AudioPlayer(channel, options),
-            player => new Controls(player),
-        );
+        return [
+            ...document.querySelectorAll(element ?? "[data-audio]"),
+        ].map(channel => Radio.listen(channel, options));
     }
 }
