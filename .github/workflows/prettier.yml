@@ -1,0 +1,17 @@
+name: Prettier
+
+# Controls when the action will run. Triggers the workflow
+# on pull requests events but only for the master branch
+on:
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  prettier:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Install dependencies
+      run: npm install
