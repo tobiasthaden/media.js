@@ -16,7 +16,7 @@ npm install mediajs
 
 You want to try Media.js or stick with the defaults?
 
-Add an element with a `data-audio` attribute to your markup and initialize Media.js.
+Add an element with a `data-video` attribute to your markup and initialize Media.js.
 
 `<div data-video="video.mp4"></div>`
 
