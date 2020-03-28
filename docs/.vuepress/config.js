@@ -1,13 +1,26 @@
 module.exports = {
-    title: "Cinema",
+    title: "media.js",
 
     themeConfig: {
-        logo: null,
+        // logo: "/logo.png",
+
+        markdown: {
+            lineNumbers: true,
+        },
 
         nav: [
-            { text: "GitHub", link: "https://github.com/tobiasthaden/cinema" },
+            { text: "Guide", link: "/guide/" },
+            { text: "Themes", link: "/themes/" },
+            {
+                text: "GitHub",
+                link: "https://github.com/tobiasthaden/media.js",
+            },
         ],
 
-        displayAllHeaders: true,
+        sidebar: {
+            "/guide/": ["", "toolbar", "events", "/themes/"],
+        },
+
+        sidebarDepth: 2,
     },
 };
