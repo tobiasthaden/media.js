@@ -1,7 +1,6 @@
 export default class Control {
     /**
      * Create a new Control instance.
-     * @return {void}
      */
     constructor() {
         this.element = this.makeElement();

@@ -6,7 +6,6 @@ export default class Player {
      * Create a new Player instance.
      *
      * @param {Element} element
-     * @return {void}
      */
     constructor(element) {
         this.element = element;

@@ -17,9 +17,9 @@ export default class Media {
     /**
      * Initialize video players.
      *
-     * @param {string|Element} element
+     * @param {string|Element|null} element
      * @param {Object|null} options
-     * @return {void}
+     * @return {VideoPlayer|VideoPlayer[]}
      */
     static watch(element, options) {
         if (element instanceof Element) {
@@ -37,9 +37,9 @@ export default class Media {
     /**
      * Initialize audio players.
      *
-     * @param {string|Element} element
+     * @param {string|Element|null} element
      * @param {Object|null} options
-     * @return {void}
+     * @return {AudioPlayer|AudioPlayer[]}
      */
     static listen(element, options) {
         if (element instanceof Element) {
