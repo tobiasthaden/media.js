@@ -1,5 +1,5 @@
 {
-  "name": "@tobiasthaden/cinema",
+  "name": "mediajs",
   "version": "0.1.0",
   "description": "A simple and lightweight html5 media player",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tobiasthaden/cinema.git"
+    "url": "git+https://github.com/tobiasthaden/media.js.git"
   },
   "keywords": [
     "media player",
@@ -21,9 +21,9 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/tobiasthaden/cinema/issues"
+    "url": "https://github.com/tobiasthaden/media.js/issues"
   },
-  "homepage": "https://github.com/tobiasthaden/cinema#readme",
+  "homepage": "https://github.com/tobiasthaden/media.js#readme",
   "devDependencies": {
     "prettier": "^1.19.1"
   }

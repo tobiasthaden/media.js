@@ -13,7 +13,7 @@ const tap = function(value, callback) {
     return value;
 };
 
-export default class Cinema {
+export default class Media {
     /**
      * Initialize video players.
      *
@@ -31,11 +31,9 @@ export default class Cinema {
 
         return [
             ...document.querySelectorAll(element ?? "[data-video]"),
-        ].map(movie => Cinema.watch(movie, options));
+        ].map(movie => Media.watch(movie, options));
     }
-}
 
-export class Radio {
     /**
      * Initialize audio players.
      *
@@ -53,6 +51,6 @@ export class Radio {
 
         return [
             ...document.querySelectorAll(element ?? "[data-audio]"),
-        ].map(channel => Radio.listen(channel, options));
+        ].map(channel => Media.listen(channel, options));
     }
 }
