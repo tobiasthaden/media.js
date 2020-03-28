@@ -16,7 +16,7 @@ export default class AudioPlayer extends Player {
     constructor(element, options) {
         super(element);
 
-        options = options ?? {};
+        options = options ? options : {};
 
         this.keyboard = options.hasOwnProperty("keyboard")
             ? options.hasOwnProperty("keyboard")

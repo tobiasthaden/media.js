@@ -30,7 +30,7 @@ export default class Media {
         }
 
         return [
-            ...document.querySelectorAll(element ?? "[data-video]"),
+            ...document.querySelectorAll(element ? element : "[data-video]"),
         ].map(movie => Media.watch(movie, options));
     }
 
@@ -50,7 +50,7 @@ export default class Media {
         }
 
         return [
-            ...document.querySelectorAll(element ?? "[data-audio]"),
+            ...document.querySelectorAll(element ? element : "[data-audio]"),
         ].map(channel => Media.listen(channel, options));
     }
 }
