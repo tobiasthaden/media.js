@@ -11,6 +11,6 @@ features:
     - title: Modular with ES6+
       details: There is no bundle shipped just extendable modules with common defaults.
     - title: Lightweight
-      details: 9kb gzip and dependency free. So pull in Media.js is a no-brainer.
+      details: 6.2kb gzip and dependency free. So pull in Media.js is a no-brainer.
 footer: MIT Licensed · Copyright © 2020 Tobias Thaden
 ---
