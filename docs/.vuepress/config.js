@@ -1,4 +1,6 @@
 module.exports = {
+    base: "/media.js/",
+
     title: "media.js",
 
     themeConfig: {
