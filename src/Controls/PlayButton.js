@@ -3,15 +3,6 @@ import Element from "../Support/Element.js";
 
 export default class PlayButton extends Control {
     /**
-     * Get the controls event listeners.
-     *
-     * @return {array}
-     */
-    eventListener() {
-        return ["click"];
-    }
-
-    /**
      * Boot any control services.
      *
      * @return {void}
