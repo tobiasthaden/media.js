@@ -8,7 +8,7 @@ export default class FullscreenButton extends Control {
      * @return {void}
      */
     boot() {
-        this.listen('click', event => this.player.fullscreen());
+        this.listen("click", event => this.player.fullscreen());
     }
 
     /**

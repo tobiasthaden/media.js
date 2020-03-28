@@ -57,10 +57,8 @@ export default class VideoPlayer extends Player {
      * @return {Element}
      */
     makeMediaPlayer(container) {
-        return Element.create(
-            "video",
-            { src: container.dataset.video },
-            element => container.appendChild(element),
+        return Element.create("video", { src: container.dataset.video }, element =>
+            container.appendChild(element),
         );
     }
 

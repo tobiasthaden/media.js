@@ -10,7 +10,9 @@ export default class VolumeSlider extends Control {
     boot() {
         this.updateVolume();
 
-        this.listen('input', event => this.player.setVolume(event.target.value / 100));
+        this.listen("input", event =>
+            this.player.setVolume(event.target.value / 100),
+        );
     }
 
     /**

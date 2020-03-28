@@ -14,7 +14,7 @@ export default class MuteButton extends Control {
                 : this.element.setAttribute("aria-label", "mute");
         });
 
-        this.listen('click', event => this.player.switchMute());
+        this.listen("click", event => this.player.switchMute());
     }
 
     /**

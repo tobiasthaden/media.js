@@ -25,9 +25,7 @@ export default class Keyboard {
      * @return {number|string}
      */
     fromCode(code) {
-        return this.codes.hasOwnProperty(code)
-            ? this.codes[code]
-            : code;
+        return this.codes.hasOwnProperty(code) ? this.codes[code] : code;
     }
 
     /**

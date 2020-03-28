@@ -16,7 +16,7 @@ export default class PlayButton extends Control {
             this.element.setAttribute("aria-label", "play"),
         );
 
-        this.listen('click', event => this.player.switchPlay());
+        this.listen("click", event => this.player.switchPlay());
     }
 
     /**

@@ -54,10 +54,8 @@ export default class AudioPlayer extends Player {
      * @return {Element}
      */
     makeMediaPlayer(container) {
-        return Element.create(
-            "audio",
-            { src: container.dataset.audio },
-            element => container.appendChild(element),
+        return Element.create("audio", { src: container.dataset.audio }, element =>
+            container.appendChild(element),
         );
     }
 }

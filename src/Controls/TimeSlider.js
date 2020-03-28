@@ -10,9 +10,11 @@ export default class TimeSlider extends Control {
     boot() {
         this.updateTime();
 
-        this.listen('input', event => this.player.setTime(
-            (this.player.native.duration / 100) * event.target.value
-        ));
+        this.listen("input", event =>
+            this.player.setTime(
+                (this.player.native.duration / 100) * event.target.value,
+            ),
+        );
     }
 
     /**
@@ -23,7 +25,8 @@ export default class TimeSlider extends Control {
     updateTime() {
         this.player.listen("timeupdate", event => {
             this.element.value =
-                (100 / this.player.native.duration) * this.player.native.currentTime;
+                (100 / this.player.native.duration) *
+                this.player.native.currentTime;
         });
     }
 

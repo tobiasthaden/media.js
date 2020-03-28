@@ -30,7 +30,9 @@ export default class TimeDisplay extends Control {
      */
     updateTime() {
         this.player.listen("timeupdate", event => {
-            this.current.nodeValue = this.formatTime(this.player.native.currentTime);
+            this.current.nodeValue = this.formatTime(
+                this.player.native.currentTime,
+            );
         });
     }
 
