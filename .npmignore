@@ -1,5 +1,6 @@
 docs/
 node_modules/
+bin/
 package-lock.json
 .prettierrc
 .editorconfig
