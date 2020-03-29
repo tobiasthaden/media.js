@@ -1,26 +1,37 @@
 module.exports = {
+    head: [
+        ['link', { rel: 'icon', href: null }]
+    ],
+
     title: "media.js",
 
-    themeConfig: {
-        // logo: "/logo.png",
+    markdown: {
+        lineNumbers: true,
+    },
 
-        markdown: {
-            lineNumbers: true,
-        },
+    themeConfig: {
+        displayAllHeaders: true,
+
+        docsDir: 'docs',
+
+        editLinks: true,
+
+        lastUpdated: true,
+
+        logo: null,
 
         nav: [
             { text: "Guide", link: "/guide/" },
-            { text: "Themes", link: "/themes/" },
-            {
-                text: "GitHub",
-                link: "https://github.com/tobiasthaden/media.js",
-            },
         ],
 
+        repo: 'tobiasthaden/media.js',
+
         sidebar: {
-            "/guide/": ["", "toolbar", "events", "/themes/"],
+            "/guide/": ["", "toolbar/", "events/", "themes/"],
         },
 
         sidebarDepth: 2,
+
+        smoothScroll: true,
     },
 };
