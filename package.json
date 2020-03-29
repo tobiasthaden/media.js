@@ -1,6 +1,6 @@
 {
   "name": "mediajs",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "A simple and lightweight html5 media player",
   "main": "index.js",
   "scripts": {
