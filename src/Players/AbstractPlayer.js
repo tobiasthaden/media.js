@@ -21,9 +21,10 @@ export default class Player {
      * Create a new native media player.
      *
      * @param {Element} container
+     * @param {Object} attributes
      * @return {Element}
      */
-    makeMediaPlayer(container) {
+    makeMediaPlayer(container, attributes) {
         throw "Can not instantiate an abstract player.";
     }
 

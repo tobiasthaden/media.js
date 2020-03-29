@@ -54,6 +54,7 @@ export default class VideoPlayer extends Player {
      * Create a new native video player.
      *
      * @param {Element} container
+     * @param {Object} attributes
      * @return {Element}
      */
     makeMediaPlayer(container, attributes) {

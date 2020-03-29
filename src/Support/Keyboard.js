@@ -29,9 +29,9 @@ export default class Keyboard {
     }
 
     /**
-     * Create a new key event frok native event.
+     * Create a new key event from native event.
      *
-     * @param  {Event[keyCode]} options.keyCode
+     * @param  {KeyboardEvent[keyCode]} options.keyCode
      * @return {Event}
      */
     static transform({ keyCode }) {

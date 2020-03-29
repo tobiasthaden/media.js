@@ -53,12 +53,12 @@ export default class Control {
     /**
      * Update the CSS selector.
      *
-     * @param {string} current
-     * @param {string} before
+     * @param {string} add
+     * @param {string} remove
      * @return {void}
      */
-    updateCssClass(current, before) {
-        this.element.classList.add(current);
-        this.element.classList.remove(before);
+    updateCssClass(add, remove) {
+        this.element.classList.add(add);
+        this.element.classList.remove(remove);
     }
 }

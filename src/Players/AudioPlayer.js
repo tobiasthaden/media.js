@@ -51,6 +51,7 @@ export default class AudioPlayer extends Player {
      * Create a new native audio player.
      *
      * @param {Element} container
+     * @param {Object} attributes
      * @return {Element}
      */
     makeMediaPlayer(container, attributes) {
