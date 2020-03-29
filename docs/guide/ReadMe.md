@@ -30,14 +30,6 @@ Media.watch();
 
 Media.js is a highly customizable set of components to control your media files. You may pick some of the shipped components and/or extend our media player with your own components.
 
-#### Build your Markup
-
-Creating a new media player is simple adding an element that has a `data-attribute` to your markup.
-
-```html
-<div class="my-video" data-video="my-video.mp4"></div>
-```
-
 #### Use Media.js
 
 If you don't provide a selector or element to the `watch()` method, Media.js is looking for any element with an `data-video` attribute.
@@ -55,7 +47,8 @@ By passing an configuration object you may register any [hooks](events) to contr
 You may also add controls to the [toolbar](toolbar).
 
 ```js
-Media.watch(".my-video", {
+Media.watch(myVideo, {
+  src: 'my-video.mp4', // Your media src
   keyboard: true, // Enable keyboard support
   controls: [...], // Add controls to the toolbar
   events: {}, // Register any event listeners
