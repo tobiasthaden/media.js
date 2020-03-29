@@ -6,10 +6,15 @@ export default class Player {
      * Create a new Player instance.
      *
      * @param {Element} element
+     * @param {Object} options
      */
-    constructor(element) {
+    constructor(element, options) {
+        let src = options.hasOwnProperty("src")
+            ? options.src
+            : element.dataset.audio || element.dataset.video;
+
         this.element = element;
-        this.native = this.makeMediaPlayer(element);
+        this.native = this.makeMediaPlayer(element, { src });
     }
 
     /**

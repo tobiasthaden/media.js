@@ -15,9 +15,9 @@ export default class VideoPlayer extends Player {
      * @param  {Object|null} options
      */
     constructor(element, options) {
-        super(element);
+        options = options || {};
 
-        options = options ? options : {};
+        super(element, options);
 
         this.keyboard = options.hasOwnProperty("keyboard")
             ? options.hasOwnProperty("keyboard")
@@ -56,8 +56,8 @@ export default class VideoPlayer extends Player {
      * @param {Element} container
      * @return {Element}
      */
-    makeMediaPlayer(container) {
-        return Element.create("video", { src: container.dataset.video }, element =>
+    makeMediaPlayer(container, attributes) {
+        return Element.create("video", { src: attributes.src }, element =>
             container.appendChild(element),
         );
     }

@@ -14,9 +14,9 @@ export default class AudioPlayer extends Player {
      * @param  {Object|null} options
      */
     constructor(element, options) {
-        super(element);
+        options = options || {};
 
-        options = options ? options : {};
+        super(element, options);
 
         this.keyboard = options.hasOwnProperty("keyboard")
             ? options.hasOwnProperty("keyboard")
@@ -53,8 +53,8 @@ export default class AudioPlayer extends Player {
      * @param {Element} container
      * @return {Element}
      */
-    makeMediaPlayer(container) {
-        return Element.create("audio", { src: container.dataset.audio }, element =>
+    makeMediaPlayer(container, attributes) {
+        return Element.create("audio", { src: attributes.src }, element =>
             container.appendChild(element),
         );
     }
