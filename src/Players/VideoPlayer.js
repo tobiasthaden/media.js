@@ -58,8 +58,13 @@ export default class VideoPlayer extends Player {
      * @return {Element}
      */
     makeMediaPlayer(container, attributes) {
-        return Element.create("video", { src: attributes.src }, element =>
-            container.appendChild(element),
+        return Element.create(
+            "video",
+            {
+                src: attributes.src,
+                playsinline: true,
+            },
+            element => container.appendChild(element),
         );
     }
 
@@ -80,6 +85,10 @@ export default class VideoPlayer extends Player {
      * @return {Promise}
      */
     fullscreen() {
+        if (this.native.webkitEnterFullScreen) {
+            return this.native.webkitEnterFullScreen();
+        }
+
         if (this.native.webkitRequestFullScreen) {
             return this.native.webkitRequestFullScreen();
         }
