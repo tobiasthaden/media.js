@@ -22,11 +22,13 @@ module.exports = {
 
         nav: [
             { text: "Guide", link: "/guide/" },
+            { text: "Reference", link: "/api/" },
         ],
 
         repo: 'tobiasthaden/media.js',
 
         sidebar: {
+            "/api/": ["", "player/", "toolbar/", "control/", "helpers/"],
             "/guide/": ["", "toolbar/", "events/", "themes/"],
         },
 
