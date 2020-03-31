@@ -1,6 +1,6 @@
 module.exports = {
     head: [
-        ['link', { rel: 'icon', href: null }]
+        ['link', { rel: 'icon', href: 'logo.png' }]
     ],
 
     title: "media.js",
@@ -18,7 +18,7 @@ module.exports = {
 
         lastUpdated: true,
 
-        logo: null,
+        logo: 'logo.png',
 
         nav: [
             { text: "Guide", link: "/guide/" },
