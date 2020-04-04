@@ -67,6 +67,10 @@ export default class VideoPlayer extends Player {
                 element.setAttribute("muted", "muted");
             }
 
+            if (attributes.poster) {
+                element.setAttribute("poster", attributes.poster);
+            }
+
             container.appendChild(element);
         });
     }

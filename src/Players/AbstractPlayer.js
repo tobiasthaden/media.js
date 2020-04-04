@@ -17,8 +17,12 @@ export default class Player {
             ? options.autoplay
             : element.getAttribute("autoplay");
 
+        let poster = options.hasOwnProperty("poster")
+            ? options.poster
+            : element.getAttribute("poster");
+
         this.element = element;
-        this.native = this.makeMediaPlayer(element, { autoplay, src });
+        this.native = this.makeMediaPlayer(element, { autoplay, poster, src });
     }
 
     /**
