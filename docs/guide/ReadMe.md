@@ -50,6 +50,7 @@ You may also add controls to the [toolbar](toolbar).
 Media.watch(myVideo, {
   src: 'my-video.mp4', // Your media src
   autoplay: false, // Autoplay the video
+  poster: 'my-video-poster.jpg', // Add a poster image
   keyboard: true, // Enable keyboard support
   controls: [...], // Add controls to the toolbar
   events: {}, // Register any event listeners
