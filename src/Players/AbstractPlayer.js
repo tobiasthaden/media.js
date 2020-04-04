@@ -13,8 +13,12 @@ export default class Player {
             ? options.src
             : element.dataset.audio || element.dataset.video;
 
+        let autoplay = options.hasOwnProperty("autoplay")
+            ? options.autoplay
+            : element.getAttribute("autoplay");
+
         this.element = element;
-        this.native = this.makeMediaPlayer(element, { src });
+        this.native = this.makeMediaPlayer(element, { autoplay, src });
     }
 
     /**

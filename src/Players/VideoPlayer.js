@@ -58,14 +58,17 @@ export default class VideoPlayer extends Player {
      * @return {Element}
      */
     makeMediaPlayer(container, attributes) {
-        return Element.create(
-            "video",
-            {
-                src: attributes.src,
-                playsinline: true,
-            },
-            element => container.appendChild(element),
-        );
+        return Element.create("video", element => {
+            element.setAttribute("src", attributes.src);
+            element.setAttribute("playsinline", "playsinline");
+
+            if (attributes.autoplay) {
+                element.setAttribute("autoplay", "autoplay");
+                element.setAttribute("muted", "muted");
+            }
+
+            container.appendChild(element);
+        });
     }
 
     /**
