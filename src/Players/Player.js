@@ -20,6 +20,10 @@ export class Player {
         this.element.pause();
     }
 
+    toggleMute() {
+        this.element.muted = !this.element.muted;
+    }
+
     togglePlay() {
         this.isPlaying() ? this.pause() : this.play();
     }
