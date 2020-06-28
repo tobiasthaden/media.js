@@ -29,8 +29,12 @@ export class Control {
     }
 
     _registerEvents() {
-        for (let [event, handler] of Object.entries(this._getOption("on"))) {
-            this.element.addEventListener(event, handler);
+        let events = this._getOption("on");
+
+        if (events) {
+            for (let [event, handler] of Object.entries(events)) {
+                this.element.addEventListener(event, handler);
+            }
         }
     }
 

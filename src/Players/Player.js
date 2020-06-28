@@ -32,6 +32,10 @@ export class Player {
         this.element.addEventListener(event, handler);
     }
 
+    get(prop) {
+        return this.element[prop];
+    }
+
     _getDefaults() {
         throw "Can not initialize an abstract player.";
     }
