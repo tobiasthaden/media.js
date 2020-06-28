@@ -1,3 +1,5 @@
+import { CurrentTime } from "../Controls/CurrentTime";
+import { ToggleMute } from "../Controls/ToggleMute";
 import { TogglePlay } from "../Controls/TogglePlay";
 
 const createControls = function (player) {
@@ -7,6 +9,8 @@ const createControls = function (player) {
 
     let controls = {
         TogglePlay,
+        CurrentTime,
+        ToggleMute,
     };
 
     let elements = document.createElement("div");

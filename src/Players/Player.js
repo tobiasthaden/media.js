@@ -20,12 +20,20 @@ export class Player {
         this.element.pause();
     }
 
+    toggleMute() {
+        this.element.muted = !this.element.muted;
+    }
+
     togglePlay() {
         this.isPlaying() ? this.pause() : this.play();
     }
 
     on(event, handler) {
         this.element.addEventListener(event, handler);
+    }
+
+    get(prop) {
+        return this.element[prop];
     }
 
     _getDefaults() {
